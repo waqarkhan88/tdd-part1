@@ -1,6 +1,6 @@
 package com.sibisoft.tdd.training;
 
-public class Money implements Expression {
+public class Money extends Expression {
 	
 	protected int amount;
 	protected String currency;
@@ -31,11 +31,7 @@ public class Money implements Expression {
 	public static Money franc(int amount) {
 		return new Money(amount, "CHF");
 	}
-	
-	public Expression plus(Expression addend) {
-		return new Sum(this, addend);
-	}
-	
+
 	public Money reduce(Bank bank, String to) {
 		int rate = bank.rate(currency, to);
 		return new Money(amount / rate, to);

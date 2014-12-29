@@ -1,6 +1,6 @@
 package com.sibisoft.tdd.training;
 
-public class Sum implements Expression {
+public class Sum extends Expression {
 	public Expression augend;
 	public Expression addend;
 	
@@ -13,10 +13,6 @@ public class Sum implements Expression {
 		int amount= augend.reduce(bank, to).amount 
 				+ addend.reduce(bank, to).amount;
 		return new Money(amount, to);
-	}
-	
-	public Expression plus(Expression addend) {
-		return new Sum(this, addend);
 	}
 	
 	public Expression times(int multiplier) {
